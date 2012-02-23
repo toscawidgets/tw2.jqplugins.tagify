@@ -1,16 +1,10 @@
-from tw.core.testutil import WidgetTestCase
-from tw.jqplugins import *
+from tw2.core.testbase import WidgetTest
+import tw2.jqplugins.tagify
 
-class TestWidget(WidgetTestCase):
+class TestWidget(WidgetTest):
     # place your widget at the TestWidget attribute
-    TestWidget = Jqplugins
-    # Initilization args. go here 
-    widget_kw = {}
-
-    def test_render(self):
-        # Asserts 'foo' and 'test' (the test widget's id) appear in rendered 
-        # string when 'foo' is passed as value to render
-        self.assertInOutput(['foo', 'test'], "foo")
-        # Asserts 'ohlalala' does not appear in rendered string when render 
-        # is called without args
-        self.assertNotInOutput(['ohlalala'])
+    widget = tw2.jqplugins.tagify.TagifyWidget
+    # Initilization args. go here
+    attrs={'id':'tagifytest'}
+    params={}
+    expected = """<textarea id="tagifytest" name="tagifytest"></textarea>"""

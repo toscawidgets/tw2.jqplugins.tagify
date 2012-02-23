@@ -20,6 +20,17 @@ setup(
     zip_safe=False,
     include_package_data=True,
     test_suite = 'nose.collector',
+    tests_require = [
+        'nose',
+        'BeautifulSoup',
+        'Genshi',
+        'mako',
+        # formencode isn't actually needed, but is just here to patch up
+        # tw2.forms,
+        'formencode',
+        'strainer',
+        'WebTest'
+    ],
     entry_points="""
         [tw2.widgets]
         # Register your widgets so they can be listed in the WidgetBrowser
