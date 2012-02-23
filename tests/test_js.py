@@ -1,5 +1,6 @@
 import tw2.core as twc
 import tw2.jqplugins.tagify
+from nose.tools import eq_
 
 def request_local_tst():
     global _request_local, _request_id
@@ -23,7 +24,7 @@ def setup():
     twc.core.request_local()['middleware'] = twc.make_middleware()
 
 def test_js_call():
-    w = tw2.jqplugins.tagify.TagifyWidget(id='foobar')
+    w = tw2.jqplugins.tagify.TagifyWidget(id='foobar', options={'key':'value'})
     w.display()
 
     js_calls = filter(lambda x: "JSFuncCall" in str(x), w.resources)
@@ -32,4 +33,4 @@ def test_js_call():
 
     for js_call in js_calls:
         print js_call.src
-        assert(js_call.src == "$('#foobar').tagify({})")
+        eq_(js_call.src, """$('#foobar').tagify({\\"key\\": \\"value\\"})""")
