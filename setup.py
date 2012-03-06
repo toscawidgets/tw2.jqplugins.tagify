@@ -6,7 +6,7 @@ setup(
     description='Tagify for ToscaWidgets2',
     author='Greg Jurman',
     author_email='gdj2214@rit.edu',
-    url='https://github.com/gregjurman/tw2.jqplugins.tagify/',
+    url='https://github.com/toscawidgets/tw2.jqplugins.tagify/',
     install_requires=[
         "tw2.core",
         'mako',
